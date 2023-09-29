@@ -1,6 +1,6 @@
 /*eslint-disable no-undef */
 import http from "http";
-// import pg from "pg";
+import pg from "pg";
 import "dotenv/config";
 
 const client = new pg.Client(
