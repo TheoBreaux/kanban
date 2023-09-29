@@ -3,30 +3,30 @@ import http from "http";
 // import pg from "pg";
 import "dotenv/config";
 
-// const client = new pg.Client(
-//   process.env.PGUSER
-//     ? {
-//         user: process.env.PGUSER,
-//         host: process.env.PGHOST,
-//         database: process.env.PGDB,
-//         password: process.env.PGPWD,
-//         port: process.env.PGPORT,
-//       }
-//     : "postgres://admin:4PCUPNGdNFbxlbSuyFWdrqkXHW10tBSK@dpg-ckbif3esmu8c73a4n1hg-a/kanban_rj59"
-// );
-// await client.connect();
+const client = new pg.Client(
+  process.env.PGUSER
+    ? {
+        user: process.env.PGUSER,
+        host: process.env.PGHOST,
+        database: process.env.PGDB,
+        password: process.env.PGPWD,
+        port: process.env.PGPORT,
+      }
+    : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a/kanban_pmd1"
+);
+await client.connect();
 
-// async function queryDb(query) {
-//   try {
-//     const res = await client.query(query);
-//     return res.rows;
-//   } catch (err) {
-//     console.error(err);
-//     return [];
-//   } finally {
-//     await client.end();
-//   }
-// }
+async function queryDb(query) {
+  try {
+    const res = await client.query(query);
+    return res.rows;
+  } catch (err) {
+    console.error(err);
+    return [];
+  } finally {
+    await client.end();
+  }
+}
 
 const server = http.createServer(async (req, res) => {
   console.log(req.url);
@@ -44,7 +44,7 @@ const server = http.createServer(async (req, res) => {
       })
     );
   } else if (req.url === "/boards") {
-    const data = await queryDb("SELECT * FROM board;"); // Await the query result
+    let data = await queryDb("SELECT * FROM board;"); // Await the query result
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 200;
     res.write(JSON.stringify(data)); // Write the data returned from the database
