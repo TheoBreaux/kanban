@@ -16,9 +16,9 @@ const client = new pg.Client(
 );
 await client.connect();
 
-async function queryDb() {
+async function queryDb(query) {
   try {
-    const res = await client.query("SELECT * FROM board;");
+    const res = await client.query(query);
     return res.rows;
   } catch (err) {
     console.error(err);

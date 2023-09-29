@@ -20,7 +20,8 @@ function App() {
           </p>
           <button
             onClick={() => {
-              fetch("http://localhost:5030/boards")
+              //https://kanban-backend-t2hq.onrender.com
+              fetch(import.meta.env.VITE_BACKEND_URL + "/boards")
                 .then((response) => response.json())
                 .then((data) => {
                   console.log(data);
