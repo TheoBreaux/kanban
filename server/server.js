@@ -14,9 +14,9 @@ const client = new pg.Client(
       }
     : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a.oregon-postgres.render.com/kanban_pmd1?ssl=true"
 );
-await client.connect();
 
 async function queryDb(query) {
+  await client.connect();
   try {
     const res = await client.query(query);
     return res.rows;
