@@ -44,7 +44,7 @@ const server = http.createServer(async (req, res) => {
       })
     );
   } else if (req.url === "/boards") {
-    let data = await queryDb("SELECT * FROM board;"); // Await the query result
+    let data = await queryDb("select * from board;"); // Await the query result
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 200;
     res.write(JSON.stringify(data)); // Write the data returned from the database
