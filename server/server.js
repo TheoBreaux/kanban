@@ -12,7 +12,7 @@ const client = new pg.Client(
         password: process.env.PGPWD,
         port: process.env.PGPORT,
       }
-    : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a/kanban_pmd1"
+    : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a.oregon-postgres.render.com/kanban_pmd1"
 );
 await client.connect();
 
