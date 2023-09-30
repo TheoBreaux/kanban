@@ -28,6 +28,7 @@ async function queryDb(query) {
   }
 }
 
+//work please
 const server = http.createServer(async (req, res) => {
   console.log(req.url);
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
