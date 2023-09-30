@@ -38,9 +38,7 @@ const server = http.createServer(async (req, res) => {
     res.write(
       JSON.stringify({
         name: "Theo Ashley Breaux",
-        age: 44,
         occupation: "software developer",
-        salary: 325000,
       })
     );
   } else if (req.url === "/boards") {
@@ -54,7 +52,7 @@ const server = http.createServer(async (req, res) => {
     res.write(
       JSON.stringify({
         name: "Theo Breaux",
-        age: 44,
+        occupation: "software developer",
       })
     );
   } else if (req.url === "/group/1") {
