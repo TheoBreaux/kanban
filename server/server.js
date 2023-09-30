@@ -43,7 +43,7 @@ const server = http.createServer(async (req, res) => {
         salary: 325000,
       })
     );
-  } else if (req.url === "/boards") {
+  } else if (req.url === "/test") {
     let data = await queryDb("select * from board;"); // Await the query result
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 200;
