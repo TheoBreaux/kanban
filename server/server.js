@@ -12,7 +12,7 @@ const client = new pg.Client(
         password: process.env.PGPWD,
         port: process.env.PGPORT,
       }
-    : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a.oregon-postgres.render.com/kanban_pmd1"
+    : "postgres://admin:1G7IwIVcEnaPoTYw1Mf8wbXK3IuvAnh5@dpg-ckbl91ciibqc73afpk9g-a.oregon-postgres.render.com/kanban_pmd1?ssl=true"
 );
 await client.connect();
 
@@ -28,7 +28,6 @@ async function queryDb(query) {
   }
 }
 
-//work please
 const server = http.createServer(async (req, res) => {
   console.log(req.url);
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
