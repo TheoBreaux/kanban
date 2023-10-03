@@ -29,8 +29,15 @@ async function queryDb(query) {
 }
 
 const server = http.createServer(async (req, res) => {
-  console.log(req.url);
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    "http://localhost:5173",
+    "https://kanban-frontend-5o51.onrender.com",
+  ];
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
 
   if (req.url === "/") {
     res.setHeader("Content-Type", "application/json");
