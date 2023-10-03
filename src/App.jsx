@@ -20,7 +20,6 @@ function App() {
           </p>
           <button
             onClick={() => {
-              //https://kanban-backend-a6be.onrender.com
               fetch(import.meta.env.VITE_BACKEND_URL + "/boards")
                 .then((response) => response.json())
                 .then((data) => {
